@@ -1,16 +1,19 @@
 <script>
 import axios from 'axios';
 import ProjectsListItem from './ProjectsListItem.vue';
+import AppLoader from './AppLoader.vue';
 
 export default {
     name: 'ProjectsList',
     components: {
-        ProjectsListItem
+        ProjectsListItem,
+        AppLoader,
     },
     data() {
         return {
             projectList: [],
             apiUrl: 'http://127.0.0.1:8000/api/projects',
+            loaded: false,
         }
     },
     methods: {
@@ -20,6 +23,7 @@ export default {
                     // handle success
                     console.log(response.data.result);
                     this.projectList = response.data.result;
+                    this.loaded = true;
                 })
                 .catch(function (error) {
                     // handle error
@@ -35,7 +39,11 @@ export default {
 
 <template>
 
-    <div class="col-12">
+    <div class="loader" v-if="!loaded">
+        <AppLoader />
+    </div>
+
+    <div class="col-12" v-else>
         <ProjectsListItem class="card" v-for="project in projectList" :key="project.id" :projectObject="project" />
     </div>
 
