@@ -7,6 +7,7 @@ import AppProject from '../pages/AppProject.vue'
 const routes = [
     { path: '/', component: AppHome, name: 'home' },
     { path: '/about', component: AppAbout, name: 'about' },
+    { path: '/projects', component: AppProject, name: 'projects' },
 ]
 
 const router = createRouter({

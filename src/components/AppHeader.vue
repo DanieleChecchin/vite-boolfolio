@@ -20,20 +20,20 @@ export default {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <router-link class="nav-link active" :to="{ name: 'home' }">
+                            <router-link class="nav-link" :to="{ name: 'home' }">
                                 Home
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link class="nav-link active" :to="{ name: 'about' }">
+                            <router-link class="nav-link" :to="{ name: 'about' }">
                                 About us
                             </router-link>
                         </li>
-                        <!-- <li class="nav-item">
-                            <router-link class="nav-link active" :to="{ name: 'projects' }">
+                        <li class="nav-item">
+                            <router-link class="nav-link" :to="{ name: 'projects' }">
                                 Projects
                             </router-link>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
             </div>
