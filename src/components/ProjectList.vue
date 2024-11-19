@@ -13,7 +13,7 @@ export default {
         return {
             projectList: [],
             apiUrl: 'http://127.0.0.1:8000/api/projects',
-            loaded: false,
+
         }
     },
     methods: {
@@ -23,7 +23,6 @@ export default {
                     // handle success
                     console.log(response.data.result);
                     this.projectList = response.data.result;
-                    this.loaded = true;
                 })
                 .catch(function (error) {
                     // handle error
@@ -33,6 +32,12 @@ export default {
     },
     created() {
         this.getProjects();
+    },
+    computed: {
+        loaded() {
+            return this.projectList.length > 0;
+        },
+
     }
 }
 </script>
